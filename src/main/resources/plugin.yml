@@ -1,0 +1,4 @@
+author: vemacs
+main: com.nullblock.vemacs.spawnheight.SpawnHeight
+name: SpawnHeight
+version: '1.0'
