@@ -22,7 +22,7 @@ public class SpawnHeight extends JavaPlugin implements Listener {
 
 	@EventHandler(priority = EventPriority.LOW)
 	public void onMobSpawn(CreatureSpawnEvent event) {
-		if ((event.getLocation().getY() <= this.getConfig().getInt("max") && event
+		if (!(event.getLocation().getY() <= this.getConfig().getInt("max") && event
 				.getLocation().getY() >= this.getConfig().getInt("min"))
 				&& event.getSpawnReason().equals(SpawnReason.NATURAL)) {
 			event.setCancelled(true);
