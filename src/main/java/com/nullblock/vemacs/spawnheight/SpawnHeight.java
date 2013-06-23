@@ -29,7 +29,7 @@ public class SpawnHeight extends JavaPlugin implements Listener {
 				&& event.getSpawnReason().equals(SpawnReason.NATURAL)) {
 			float f = Float.parseFloat(this.getConfig().getString("prob"));
 			if (!canSpawn(f)) {
-				event.setCancelled(true);
+				event.getEntity().remove();
 			}
 		}
 	}
