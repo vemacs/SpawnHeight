@@ -1,5 +1,8 @@
 package com.nullblock.vemacs.spawnheight;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -29,7 +32,12 @@ public class SpawnHeight extends JavaPlugin implements Listener {
 				&& event.getSpawnReason().equals(SpawnReason.NATURAL)) {
 			float f = Float.parseFloat(this.getConfig().getString("prob"));
 			if (!canSpawn(f)) {
-				event.getEntity().teleport(event.getLocation().setY(-20D));
+                Location loc = event.getLocation();
+                double x = loc.getX();
+                double y = -20D;
+                double z = loc.getZ();
+                String worldname = loc.getWorld().getName();
+				event.getEntity().teleport(new Location(Bukkit.getWorld(worldname), x, y, z));
 			}
 		}
 	}
